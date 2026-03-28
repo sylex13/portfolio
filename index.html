@@ -12,6 +12,7 @@
         --rule: #1a1a18;
         --accent: #c0392b;
         --muted: #5a5a52;
+        --tag-fill: #6b6b65;
         --serif: Georgia, "Times New Roman", serif;
         --mono: "Courier New", Courier, monospace;
       }
@@ -230,7 +231,7 @@
         font-family: var(--mono);
         font-size: 0.62rem;
         color: var(--paper);
-        background: var(--ink);
+        background: var(--tag-fill);
         padding: 0.15rem 0.4rem;
         letter-spacing: 0.1em;
         flex-shrink: 0;
@@ -246,21 +247,21 @@
       .project-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 7px;
       }
 
       .tag {
         font-family: var(--mono);
-        font-size: 0.6rem;
-        padding: 0.2rem 0.5rem;
+        font-size: 0.73rem;
+        padding: 0.3rem 0.65rem;
         letter-spacing: 0.05em;
-        border: 1px solid var(--ink);
-        color: var(--ink);
+        border: 1px solid var(--tag-fill);
+        color: var(--tag-fill);
         display: inline-block;
       }
 
       .tag.inv {
-        background: var(--ink);
+        background: var(--tag-fill);
         color: var(--paper);
       }
 
@@ -301,21 +302,21 @@
         font-family: var(--mono);
         font-size: 0.75rem;
         padding: 0.3rem 0.65rem;
-        border: 1px solid var(--ink);
-        color: var(--ink);
+        border: 1px solid var(--tag-fill);
+        color: var(--tag-fill);
         letter-spacing: 0.03em;
         line-height: 1;
       }
 
       .skill-tag.strong {
-        background: var(--ink);
+        background: var(--tag-fill);
         color: var(--paper);
       }
 
       .skill-tag.accent {
-        background: var(--ink);
+        background: var(--tag-fill);
         color: var(--paper);
-        border-color: var(--ink);
+        border-color: var(--tag-fill);
       }
 
       /* ── CERTS ── */
@@ -341,7 +342,7 @@
       }
 
       .cert-status.done {
-        background: var(--ink);
+        background: var(--tag-fill);
         color: var(--paper);
       }
 
@@ -645,9 +646,7 @@
               Passionné par les infrastructures réseau depuis mes premières
               manipulations Cisco Packet Tracer, j'ai rapidement élargi mon
               spectre vers le scripting réseau et la sécurité offensive. Mon
-              parcours allie rigueur académique et apprentissage continu — en
-              cours comme à la maison, je continue de construire, d'expérimenter
-              et d'apprendre par moi-même.
+              parcours allie rigueur académique et apprentissage continu.
             </p>
             <p>
               Formé à IRIS Strasbourg en filière SISR (Solutions
@@ -752,7 +751,7 @@
               <span class="project-num">04</span>
               <span class="project-title">agentIA — Système multi-agents</span>
               <span class="project-type">PERSO</span>
-              <span class="project-type" style="background: var(--ink)"
+              <span class="project-type" style="background: var(--tag-fill)"
                 >EN COURS</span
               >
             </div>
