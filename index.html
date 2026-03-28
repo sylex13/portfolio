@@ -465,25 +465,108 @@
       /* ── RESPONSIVE ── */
       @media (max-width: 680px) {
         body {
-          padding: 0.75rem;
+          padding: 0.5rem;
         }
+
+        /* Newspaper wrapper */
+        .newspaper {
+          border-width: 2px;
+        }
+
+        /* Masthead */
+        .masthead {
+          padding: 1rem 1rem 0.8rem;
+        }
+
+        .masthead-top {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.15rem;
+          padding-bottom: 0.5rem;
+        }
+
+        .masthead-name {
+          font-size: clamp(2rem, 10vw, 2.8rem);
+        }
+
+        .masthead-subtitle {
+          font-size: 0.65rem;
+          letter-spacing: 0.1em;
+        }
+
+        .masthead-tagline {
+          font-size: 0.8rem;
+        }
+
+        /* Ticker */
+        .ticker {
+          padding: 0.3rem 0.8rem;
+          font-size: 0.6rem;
+        }
+
+        /* Main layout — une seule colonne */
         .main-grid {
           grid-template-columns: 1fr;
         }
+
         .col-main {
           border-right: none;
           border-bottom: 2px solid var(--rule);
+          padding: 1.2rem 1rem;
         }
+
+        .col-sidebar {
+          padding: 1.2rem 1rem;
+        }
+
+        /* Bio */
         .bio-cols {
           column-count: 1;
         }
-        .masthead-name {
-          font-size: 2.4rem;
+
+        /* Headline */
+        .headline {
+          font-size: 1.4rem;
         }
+
+        /* Projects — empêche le débordement des labels */
+        .project-header {
+          flex-wrap: wrap;
+          gap: 0.4rem;
+        }
+
+        .project-title {
+          flex: 1 1 100%;
+          order: -1;
+        }
+
+        /* Footer */
         .footer {
           flex-direction: column;
           gap: 0.4rem;
           text-align: center;
+          padding: 0.8rem 1rem;
+        }
+
+        /* Contact — liens longs */
+        .contact-val {
+          font-size: 0.68rem;
+          word-break: break-all;
+        }
+      }
+
+      /* Très petits écrans (≤ 380px) */
+      @media (max-width: 380px) {
+        .masthead-name {
+          font-size: 1.8rem;
+        }
+
+        .headline {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 0.55rem;
         }
       }
     </style>
@@ -850,8 +933,13 @@
             <div class="contact-row">
               <span class="contact-label">Email</span>
               <span class="contact-val"
-                ><a href="mailto:votre@email.com"
-                  >yan.vocaturo@gmail.com</a
+                ><a
+                  href="/cdn-cgi/l/email-protection#ceb8a1babcab8eaba3afa7a2e0ada1a3"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="2f564e410159404c4e5b5a5d406f48424e4643014c4042"
+                    >[email&#160;protected]</span
+                  ></a
                 ></span
               >
             </div>
