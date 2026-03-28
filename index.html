@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yan Vocaturo — Portfolio IT</title>
+    <style>
+      :root {
+        --ink: #1a1a18;
+        --paper: #f7f3eb;
+        --paper-dark: #ede8dc;
+        --rule: #1a1a18;
+        --accent: #c0392b;
+        --muted: #5a5a52;
+        --serif: Georgia, "Times New Roman", serif;
+        --mono: "Courier New", Courier, monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--paper-dark);
+        color: var(--ink);
+        font-family: var(--serif);
+        min-height: 100vh;
+        padding: 2rem 1.5rem;
+      }
+
+      .newspaper {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--paper);
+        border: 3px solid var(--rule);
+        padding: 0;
+      }
+
+      /* ── MASTHEAD ── */
+      .masthead {
+        border-bottom: 6px double var(--rule);
+        padding: 1.5rem 2rem 1rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .masthead-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 0.4rem;
+      }
+
+      .masthead-meta {
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+      }
+
+      .masthead-name {
+        font-family: var(--serif);
+        font-size: clamp(2.8rem, 7vw, 5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        margin: 0.5rem 0 0.3rem;
+        color: var(--ink);
+      }
+
+      .masthead-rule {
+        border: none;
+        border-top: 3px solid var(--rule);
+        margin: 0.4rem 0;
+      }
+
+      .masthead-subtitle {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .masthead-tagline {
+        margin-top: 0.6rem;
+        font-size: 0.9rem;
+        font-style: italic;
+        color: var(--muted);
+      }
+
+      /* ── TICKER ── */
+      .ticker {
+        background: var(--ink);
+        color: var(--paper);
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        padding: 0.35rem 2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--rule);
+      }
+
+      .ticker-inner {
+        display: inline-block;
+        animation: scroll-ticker 28s linear infinite;
+      }
+
+      @keyframes scroll-ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── MAIN LAYOUT ── */
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 260px;
+        border-bottom: 3px double var(--rule);
+      }
+
+      .col-main {
+        border-right: 2px solid var(--rule);
+        padding: 1.5rem 1.8rem;
+      }
+
+      .col-sidebar {
+        padding: 1.5rem 1.4rem;
+      }
+
+      /* ── SECTION HEADERS ── */
+      .section-title {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border-top: 3px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+        padding: 0.3rem 0;
+        margin-bottom: 1rem;
+      }
+
+      .section-title span {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 0.15rem 0.5rem;
+        font-weight: 700;
+      }
+
+      /* ── HEADLINE ── */
+      .headline {
+        font-size: 1.9rem;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.4rem;
+        color: var(--ink);
+      }
+
+      .deck {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      /* ── BIO COLUMNS ── */
+      .bio-cols {
+        column-count: 2;
+        column-gap: 1.5rem;
+        column-rule: 1px solid var(--rule);
+        font-size: 0.88rem;
+        line-height: 1.7;
+        color: var(--ink);
+        margin-bottom: 1.4rem;
+      }
+
+      .bio-cols p {
+        margin-bottom: 0.6rem;
+        break-inside: avoid;
+      }
+
+      /* ── PROJECTS ── */
+      .project-block {
+        margin-bottom: 1.2rem;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .project-block:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .project-header {
+        display: flex;
+        align-items: baseline;
+        gap: 0.7rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .project-num {
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        color: var(--muted);
+        border: 1px solid var(--muted);
+        padding: 0.1rem 0.35rem;
+        flex-shrink: 0;
+      }
+
+      .project-title {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .project-type {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        color: var(--paper);
+        background: var(--ink);
+        padding: 0.15rem 0.4rem;
+        letter-spacing: 0.1em;
+        flex-shrink: 0;
+      }
+
+      .project-desc {
+        font-size: 0.83rem;
+        line-height: 1.65;
+        color: var(--ink);
+        margin-bottom: 0.5rem;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .tag {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        padding: 0.2rem 0.5rem;
+        letter-spacing: 0.05em;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+        display: inline-block;
+      }
+
+      .tag.inv {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      /* ── SIDEBAR ── */
+      .sidebar-block {
+        margin-bottom: 1.4rem;
+        padding-bottom: 1.4rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .sidebar-block:last-child {
+        border-bottom: none;
+      }
+
+      /* ── SKILL GRID ── */
+      .skill-category {
+        margin-bottom: 0.9rem;
+      }
+
+      .skill-cat-label {
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .skill-tag {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        padding: 0.2rem 0.45rem;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+        letter-spacing: 0.03em;
+      }
+
+      .skill-tag.strong {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .skill-tag.accent {
+        background: var(--accent);
+        color: var(--paper);
+        border-color: var(--accent);
+      }
+
+      /* ── CERTS ── */
+      .cert-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.82rem;
+      }
+
+      .cert-status {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        padding: 0.1rem 0.35rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .cert-status.done {
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .cert-status.wip {
+        border: 1px solid var(--muted);
+        color: var(--muted);
+      }
+
+      .cert-name {
+        font-weight: 700;
+        font-size: 0.82rem;
+      }
+      .cert-sub {
+        font-family: var(--mono);
+        font-size: 0.63rem;
+        color: var(--muted);
+      }
+
+      /* ── CONTACT ── */
+      .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.55rem;
+        font-size: 0.82rem;
+      }
+
+      .contact-label {
+        font-family: var(--mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        min-width: 52px;
+        text-transform: uppercase;
+      }
+
+      .contact-val {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--ink);
+        overflow-wrap: break-word;
+      }
+
+      .contact-val a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .contact-val a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* ── FORMATION ── */
+      .formation-item {
+        margin-bottom: 0.9rem;
+      }
+
+      .formation-period {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+        margin-bottom: 0.15rem;
+      }
+
+      .formation-name {
+        font-size: 0.85rem;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .formation-school {
+        font-family: var(--mono);
+        font-size: 0.63rem;
+        color: var(--muted);
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        border-top: 6px double var(--rule);
+        padding: 0.8rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .footer-left {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        color: rgba(247, 243, 235, 0.7);
+      }
+
+      .footer-right {
+        font-family: var(--serif);
+        font-size: 0.75rem;
+        font-style: italic;
+        color: rgba(247, 243, 235, 0.8);
+      }
+
+      /* ── PULL QUOTE ── */
+      .pull-quote {
+        border-left: 5px solid var(--ink);
+        border-right: 5px solid var(--ink);
+        padding: 0.6rem 1rem;
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 1.1rem;
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--ink);
+      }
+
+      /* ── DINGBAT DIVIDER ── */
+      .dingbat {
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--muted);
+        letter-spacing: 0.5em;
+        margin: 0.7rem 0;
+        font-family: var(--serif);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 680px) {
+        body {
+          padding: 0.75rem;
+        }
+        .main-grid {
+          grid-template-columns: 1fr;
+        }
+        .col-main {
+          border-right: none;
+          border-bottom: 2px solid var(--rule);
+        }
+        .bio-cols {
+          column-count: 1;
+        }
+        .masthead-name {
+          font-size: 2.4rem;
+        }
+        .footer {
+          flex-direction: column;
+          gap: 0.4rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article class="newspaper">
+      <!-- MASTHEAD -->
+      <header class="masthead">
+        <div class="masthead-top">
+          <span class="masthead-meta">VOL. I — N°1</span>
+          <span class="masthead-meta">STRASBOURG / LUXEMBOURG</span>
+          <span class="masthead-meta">ÉDITION NUMÉRIQUE</span>
+        </div>
+        <h1 class="masthead-name">YAN VOCATURO</h1>
+        <hr class="masthead-rule" />
+        <p class="masthead-subtitle">
+          Technicien IT &nbsp;·&nbsp; BTS SIO SISR &nbsp;·&nbsp; Réseaux &amp;
+          Cybersécurité
+        </p>
+        <p class="masthead-tagline">
+          "De l'infrastructure réseau à la sécurité des systèmes — avec méthode
+          et curiosité."
+        </p>
+      </header>
+
+      <!-- TICKER -->
+      <div class="ticker">
+        <span class="ticker-inner">
+          ◆ CISCO IOS &nbsp;&nbsp;·&nbsp;&nbsp; VLAN / INTER-VLAN ROUTING
+          &nbsp;&nbsp;·&nbsp;&nbsp; GNS3 / PACKET TRACER
+          &nbsp;&nbsp;·&nbsp;&nbsp; PYTHON NETWORKING &nbsp;&nbsp;·&nbsp;&nbsp;
+          LINUX / BASH &nbsp;&nbsp;·&nbsp;&nbsp; TCP/IP · DNS · DHCP · SSL/TLS
+          &nbsp;&nbsp;·&nbsp;&nbsp; VIRTUALISATION VMWARE
+          &nbsp;&nbsp;·&nbsp;&nbsp; ACTIVE DIRECTORY &nbsp;&nbsp;·&nbsp;&nbsp;
+          SCRIPTING RÉSEAU &nbsp;&nbsp;·&nbsp;&nbsp; ◆ CISCO IOS
+          &nbsp;&nbsp;·&nbsp;&nbsp; VLAN / INTER-VLAN ROUTING
+          &nbsp;&nbsp;·&nbsp;&nbsp; GNS3 / PACKET TRACER
+          &nbsp;&nbsp;·&nbsp;&nbsp; PYTHON NETWORKING &nbsp;&nbsp;·&nbsp;&nbsp;
+          LINUX / BASH &nbsp;&nbsp;·&nbsp;&nbsp; TCP/IP · DNS · DHCP · SSL/TLS
+          &nbsp;&nbsp;·&nbsp;&nbsp; VIRTUALISATION VMWARE
+          &nbsp;&nbsp;·&nbsp;&nbsp; ACTIVE DIRECTORY &nbsp;&nbsp;·&nbsp;&nbsp;
+          SCRIPTING RÉSEAU &nbsp;&nbsp;·&nbsp;&nbsp;
+        </span>
+      </div>
+
+      <!-- BODY -->
+      <div class="main-grid">
+        <!-- MAIN COLUMN -->
+        <div class="col-main">
+          <!-- INTRO -->
+          <div class="section-title"><span>Profil</span></div>
+          <h2 class="headline">
+            Un technicien IT formé aux réseaux, au scripting et à la
+            cybersécurité
+          </h2>
+          <p class="deck">
+            Diplômé technicien IT au Luxembourg · Actuellement en BTS SIO SISR à
+            IRIS Strasbourg · Recherche une alternance pour la 2e année (sept.
+            2026) dans l'agglomération strasbourgeoise.
+          </p>
+
+          <div class="bio-cols">
+            <p>
+              Passionné par les infrastructures réseau depuis mes premières
+              manipulations Cisco Packet Tracer, j'ai rapidement élargi mon
+              spectre vers le scripting réseau et la sécurité offensive. Mon
+              parcours allie rigueur académique et apprentissage continu — en
+              cours comme à la maison, je continue de construire, d'expérimenter
+              et d'apprendre par moi-même.
+            </p>
+            <p>
+              Formé à IRIS Strasbourg en filière SISR (Solutions
+              d'Infrastructure, Systèmes et Réseaux), je complète ma formation
+              par un roadmap personnel de 116 projets couvrant Python, Bash, et
+              l'outillage cybersécurité — du scanner TCP au reverse shell.
+            </p>
+            <p>
+              Mon objectif à moyen terme : intégrer le programme d'ingénierie
+              ISI à l'ITII Alsace (CNAM Grand Est, apprentissage), après une
+              Licence Pro Cybersécurité à l'UIMM Alsace. La voie longue, mais la
+              voie solide.
+            </p>
+          </div>
+
+          <div class="pull-quote">
+            « L'infrastructure, c'est l'art de concevoir ce que personne ne voit
+            — jusqu'à ce que ça tombe. »
+          </div>
+
+          <!-- PROJETS -->
+          <div class="section-title" style="margin-top: 1.4rem">
+            <span>Projets</span>
+          </div>
+
+          <div class="project-block">
+            <div class="project-header">
+              <span class="project-num">01</span>
+              <span class="project-title"
+                >Experty — Infrastructure IT complète</span
+              >
+              <span class="project-type">ÉCOLE</span>
+            </div>
+            <p class="project-desc">
+              Conception d'une infrastructure réseau pour un cabinet comptable
+              de 80 personnes : plan d'adressage IP sur 10 VLANs, diagramme de
+              baie, PBS détaillé, budget ~177 000 € HT. Simulation complète sous
+              Cisco Packet Tracer avec haute disponibilité dual-routeur et
+              routage inter-VLAN.
+            </p>
+            <div class="project-tags">
+              <span class="tag inv">Cisco IOS</span>
+              <span class="tag">VLAN</span>
+              <span class="tag">HSRP / HA</span>
+              <span class="tag">Packet Tracer</span>
+              <span class="tag">Adressage IP</span>
+              <span class="tag">Budget IT</span>
+            </div>
+          </div>
+
+          <div class="project-block">
+            <div class="project-header">
+              <span class="project-num">02</span>
+              <span class="project-title"
+                >IntraCloud — Intranet d'entreprise multi-applicatif</span
+              >
+              <span class="project-type">ÉCOLE</span>
+            </div>
+            <p class="project-desc">
+              Déploiement complet d'un intranet local sous WampServer (Apache +
+              PHP + MySQL) : 8 applications web configurées avec VirtualHosts
+              Apache dédiés et bases de données MySQL isolées. Stack déployée :
+              DokuWiki (wiki interne), Piwigo (galerie photos), FreshRSS
+              (agrégateur RSS), MyBB (forum), OsTicket (ticketing support IT),
+              NextCloud (stockage fichiers), Roundcube (webmail IMAP/SMTP),
+              LimeSurvey (sondages). Gestion des droits utilisateurs et
+              sécurisation post-installation sur chaque service.
+            </p>
+            <div class="project-tags">
+              <span class="tag inv">Apache</span>
+              <span class="tag inv">MySQL</span>
+              <span class="tag">VirtualHosts</span>
+              <span class="tag">PHP</span>
+              <span class="tag">phpMyAdmin</span>
+              <span class="tag">OsTicket</span>
+              <span class="tag">NextCloud</span>
+              <span class="tag">Roundcube</span>
+            </div>
+          </div>
+
+          <div class="project-block">
+            <div class="project-header">
+              <span class="project-num">03</span>
+              <span class="project-title"
+                >Roadmap cybersécurité — 116 projets</span
+              >
+              <span class="project-type">PERSO</span>
+            </div>
+            <p class="project-desc">
+              Parcours d'auto-formation structuré en 6 phases (Python → Bash → C
+              → Go → Rust → C++). Phase 1 complétée : outils réseau Python (TCP
+              scanner, DNS resolver, banner grabber, ARP analyzer, WHOIS,
+              scanner multithread) et scripts Bash (ping sweep, monitoring
+              réseau).
+            </p>
+            <div class="project-tags">
+              <span class="tag inv">Python</span>
+              <span class="tag">Bash</span>
+              <span class="tag">TCP/IP</span>
+              <span class="tag">Sockets</span>
+              <span class="tag">Scapy</span>
+              <span class="tag">Réseau offensif</span>
+            </div>
+          </div>
+
+          <div class="project-block">
+            <div class="project-header">
+              <span class="project-num">04</span>
+              <span class="project-title">agentIA — Système multi-agents</span>
+              <span class="project-type">PERSO</span>
+              <span class="project-type" style="background: var(--accent)"
+                >EN COURS</span
+              >
+            </div>
+            <p class="project-desc">
+              Conception d'un système d'agents IA orchestré : un agent central
+              délègue à des sous-agents spécialisés (traitement de texte, TTS,
+              recherche). Architecture inspirée des patterns LangChain/CrewAI,
+              intégration pyttsx3 pour la synthèse vocale, développé avec Claude
+              Code.
+            </p>
+            <div class="project-tags">
+              <span class="tag inv">Python</span>
+              <span class="tag">IA / LLM</span>
+              <span class="tag">Architecture agents</span>
+              <span class="tag">TTS</span>
+              <span class="tag">Claude Code</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-sidebar">
+          <!-- COMPETENCES -->
+          <div class="sidebar-block">
+            <div class="section-title"><span>Compétences</span></div>
+
+            <div class="skill-category">
+              <div class="skill-cat-label">Réseaux</div>
+              <div class="skill-tags">
+                <span class="skill-tag strong">Cisco IOS</span>
+                <span class="skill-tag strong">VLAN</span>
+                <span class="skill-tag">TCP/IP</span>
+                <span class="skill-tag">OSPF</span>
+                <span class="skill-tag">DNS</span>
+                <span class="skill-tag">DHCP</span>
+                <span class="skill-tag">SSL/TLS</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-label">Systèmes & OS</div>
+              <div class="skill-tags">
+                <span class="skill-tag strong">Linux</span>
+                <span class="skill-tag">Arch Linux</span>
+                <span class="skill-tag">Windows Server</span>
+                <span class="skill-tag">Bash</span>
+                <span class="skill-tag">systemd</span>
+                <span class="skill-tag">VMware</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-label">Développement</div>
+              <div class="skill-tags">
+                <span class="skill-tag strong">Python</span>
+                <span class="skill-tag">Bash scripting</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">PowerShell</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-label">Web</div>
+              <div class="skill-tags">
+                <span class="skill-tag strong">PHP</span>
+                <span class="skill-tag strong">MySQL</span>
+                <span class="skill-tag strong">HTML</span>
+                <span class="skill-tag strong">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">jQuery</span>
+                <span class="skill-tag">MariaDB</span>
+                <span class="skill-tag">Apache</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-label">Outils</div>
+              <div class="skill-tags">
+                <span class="skill-tag strong">GNS3</span>
+                <span class="skill-tag strong">Packet Tracer</span>
+                <span class="skill-tag">Wireshark</span>
+                <span class="skill-tag">Nmap</span>
+                <span class="skill-tag">VirtualBox</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-label">Cybersécurité</div>
+              <div class="skill-tags">
+                <span class="skill-tag accent">Scan réseau</span>
+                <span class="skill-tag accent">OSINT</span>
+                <span class="skill-tag">ARP / spoofing</span>
+                <span class="skill-tag">Scripting offensif</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CERTIFICATIONS -->
+          <div class="sidebar-block">
+            <div class="section-title"><span>Certifications</span></div>
+
+            <div class="cert-item">
+              <div>
+                <span class="cert-status done">OBTENU</span>
+              </div>
+              <div>
+                <div class="cert-name">Diplôme Technicien IT</div>
+                <div class="cert-sub">Luxembourg · 2023</div>
+              </div>
+            </div>
+
+            <div class="cert-item">
+              <div>
+                <span class="cert-status wip">EN COURS</span>
+              </div>
+              <div>
+                <div class="cert-name">BTS SIO SISR</div>
+                <div class="cert-sub">IRIS Strasbourg · 2025–2027</div>
+              </div>
+            </div>
+
+            <div class="cert-item">
+              <div>
+                <span class="cert-status wip">OBJECTIF</span>
+              </div>
+              <div>
+                <div class="cert-name">CompTIA Network+</div>
+                <div class="cert-sub">Préparation en cours</div>
+              </div>
+            </div>
+
+            <div class="cert-item">
+              <div>
+                <span class="cert-status wip">OBJECTIF</span>
+              </div>
+              <div>
+                <div class="cert-name">CCNA</div>
+                <div class="cert-sub">Cisco Certified Network Associate</div>
+              </div>
+            </div>
+
+            <div class="cert-item">
+              <div>
+                <span class="cert-status wip">OBJECTIF</span>
+              </div>
+              <div>
+                <div class="cert-name">CompTIA Security+</div>
+                <div class="cert-sub">+ eJPT / CySA+</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORMATION -->
+          <div class="sidebar-block">
+            <div class="section-title"><span>Formation</span></div>
+
+            <div class="formation-item">
+              <div class="formation-period">2025 → 2027</div>
+              <div class="formation-name">BTS SIO — option SISR</div>
+              <div class="formation-school">IRIS Strasbourg</div>
+            </div>
+
+            <div class="dingbat">· · ·</div>
+
+            <div class="formation-item">
+              <div class="formation-period">2027 → 2028</div>
+              <div class="formation-name">Licence Pro Cybersécurité</div>
+              <div class="formation-school">UIMM Alsace (cible)</div>
+            </div>
+
+            <div class="dingbat">· · ·</div>
+
+            <div class="formation-item">
+              <div class="formation-period">2028 →</div>
+              <div class="formation-name">Ingénieur ISI (apprentissage)</div>
+              <div class="formation-school">ITII Alsace / CNAM Grand Est</div>
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="sidebar-block">
+            <div class="section-title"><span>Contact</span></div>
+
+            <div class="contact-row">
+              <span class="contact-label">Email</span>
+              <span class="contact-val"
+                ><a href="mailto:votre@email.com"
+                  >yan.vocaturo@gmail.com</a
+                ></span
+              >
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-val"
+                ><a href="https://github.com/sylex13" target="_blank"
+                  >github.com/sylex13</a
+                ></span
+              >
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Lieu</span>
+              <span class="contact-val">Strasbourg / Luxembourg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <span class="footer-left"
+          >YAN VOCATURO &nbsp;·&nbsp; PORTFOLIO IT &nbsp;·&nbsp; 2025–2026</span
+        >
+        <span class="footer-right"
+          >Disponible pour alternance · Septembre 2026</span
+        >
+      </footer>
+    </article>
+  </body>
+</html>
